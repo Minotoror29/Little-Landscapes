@@ -28,7 +28,19 @@ public class TileDisplay : MonoBehaviour, ISelectable
 
     public void ChangeState(TileState nextState)
     {
-        _currentState = nextState;
+        if (nextState == TileState.Empty)
+        {
+            if (_currentState == TileState.Inactive)
+            {
+                _currentState = nextState;
+            } else
+            {
+                return;
+            }
+        } else
+        {
+            _currentState = nextState;
+        }
 
         if (_currentState == TileState.Inactive)
         {
@@ -77,6 +89,11 @@ public class TileDisplay : MonoBehaviour, ISelectable
                 _tile = selectedTile.SelectedTile;
                 spriteRenderer.sprite = _tile.sprite;
                 _currentState = TileState.Occupied;
+
+                foreach (TileDisplay tile in _neighbours)
+                {
+                    tile.ChangeState(TileState.Empty);
+                }
 
                 selectedTile.PlayTile();
             }
