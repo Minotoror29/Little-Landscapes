@@ -15,6 +15,8 @@ public class SelectionManager : MonoBehaviour
 
     public void UpdateLogic()
     {
+        selectedTileDisplay.UpdateLogic();
+
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

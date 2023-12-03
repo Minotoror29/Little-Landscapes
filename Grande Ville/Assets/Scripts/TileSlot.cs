@@ -18,6 +18,8 @@ public class TileSlot : MonoBehaviour, ISelectable
 
     public void OnSelect(SelectedTileDisplay selectedTile)
     {
+        if (_tile == null) return;
+
         if (selectedTile.SelectedTile == null)
         {
             selectedTile.SetTile(_tile, this);
@@ -39,5 +41,11 @@ public class TileSlot : MonoBehaviour, ISelectable
     public void PutBackTile()
     {
         image.gameObject.SetActive(true);
+    }
+
+    public void RemoveTile()
+    {
+        _tile = null;
+        image.sprite = null;
     }
 }

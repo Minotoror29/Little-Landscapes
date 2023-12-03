@@ -12,11 +12,6 @@ public class SelectedTileDisplay : MonoBehaviour
     public TileData SelectedTile { get { return _selectedTile; } }
     public TileSlot Slot { get { return _slot; } }
 
-    private void Update()
-    {
-        UpdateLogic();
-    }
-
     public void SetTile(TileData tile, TileSlot slot)
     {
         _selectedTile = tile;
@@ -27,10 +22,21 @@ public class SelectedTileDisplay : MonoBehaviour
 
     public void PutBackTile()
     {
+        RemoveTile();
+        _slot.PutBackTile();
+    }
+
+    public void PlayTile()
+    {
+        RemoveTile();
+        _slot.RemoveTile();
+    }
+
+    private void RemoveTile()
+    {
         _selectedTile = null;
         spriteRenderer.sprite = null;
         spriteRenderer.gameObject.SetActive(false);
-        _slot.PutBackTile();
     }
 
     public void UpdateLogic()

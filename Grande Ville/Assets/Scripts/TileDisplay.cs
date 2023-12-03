@@ -15,6 +15,8 @@ public class TileDisplay : MonoBehaviour, ISelectable
 
     private Vector2Int _coordinates;
 
+    private TileData _tile;
+
     public void Initialize()
     {
         SetCoordinates();
@@ -42,6 +44,16 @@ public class TileDisplay : MonoBehaviour, ISelectable
 
     public void OnSelect(SelectedTileDisplay selectedTile)
     {
-        Debug.Log("Click Tile");
+        if (selectedTile.SelectedTile)
+        {
+            if (_currentState == TileState.Empty)
+            {
+                _tile = selectedTile.SelectedTile;
+                spriteRenderer.sprite = _tile.sprite;
+                _currentState = TileState.Occupied;
+
+                selectedTile.PlayTile();
+            }
+        }
     }
 }
