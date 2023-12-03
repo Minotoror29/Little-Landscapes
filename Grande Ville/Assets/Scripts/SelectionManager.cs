@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class SelectionManager : MonoBehaviour
 {
     [SerializeField] private LayerMask selectableLayer;
+    [SerializeField] private SelectedTileDisplay selectedTileDisplay;
 
     private void Update()
     {
@@ -17,9 +18,16 @@ public class SelectionManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics2D.Raycast(ray.origin, ray.direction, 100f, selectableLayer))
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 100f, selectableLayer);
+            if (hit)
             {
-                Debug.Log("hit");
+                hit.transform.GetComponent<ISelectable>().OnSelect(selectedTileDisplay);
+            } else
+            {
+                if (selectedTileDisplay.SelectedTile != null)
+                {
+                    selectedTileDisplay.PutBackTile();
+                }
             }
         }
     }

@@ -16,8 +16,28 @@ public class TileSlot : MonoBehaviour, ISelectable
         image.sprite = tile.sprite;
     }
 
-    public void OnSelect()
+    public void OnSelect(SelectedTileDisplay selectedTile)
     {
-        Debug.Log("Click Slot");
+        if (selectedTile.SelectedTile == null)
+        {
+            selectedTile.SetTile(_tile, this);
+            image.gameObject.SetActive(false);
+        } else
+        {
+            if (selectedTile.Slot == this)
+            {
+                selectedTile.PutBackTile();
+            } else
+            {
+                selectedTile.PutBackTile();
+                selectedTile.SetTile(_tile, this);
+                image.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void PutBackTile()
+    {
+        image.gameObject.SetActive(true);
     }
 }

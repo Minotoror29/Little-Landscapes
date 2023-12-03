@@ -40,7 +40,7 @@ public class TileDisplay : MonoBehaviour, ISelectable
         _coordinates.y = (int)transform.position.y + 3;
     }
 
-    public void OnSelect()
+    public void OnSelect(SelectedTileDisplay selectedTile)
     {
         Debug.Log("Click Tile");
     }
