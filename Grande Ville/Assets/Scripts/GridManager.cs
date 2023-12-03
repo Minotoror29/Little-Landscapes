@@ -19,6 +19,11 @@ public class GridManager : MonoBehaviour
             tile.Initialize();
         }
 
+        foreach (TileDisplay tile in tiles)
+        {
+            tile.SetNeighbours(tiles);
+        }
+
         startTile.ChangeState(TileState.Empty);
     }
 }

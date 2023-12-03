@@ -14,8 +14,11 @@ public class TileDisplay : MonoBehaviour, ISelectable
     [SerializeField] private Sprite emptySprite;
 
     private Vector2Int _coordinates;
+    private List<TileDisplay> _neighbours;
 
     private TileData _tile;
+
+    public Vector2Int Coordinates { get { return _coordinates; } }
 
     public void Initialize()
     {
@@ -40,6 +43,29 @@ public class TileDisplay : MonoBehaviour, ISelectable
     {
         _coordinates.x = (int)transform.position.x + 3;
         _coordinates.y = (int)transform.position.y + 3;
+    }
+
+    public void SetNeighbours(List<TileDisplay> tiles)
+    {
+        _neighbours = new();
+        foreach (TileDisplay tile in tiles)
+        {
+            if (tile.Coordinates.x == _coordinates.x)
+            {
+                if (tile.Coordinates.y == _coordinates.y + 1 || tile.Coordinates.y == _coordinates.y - 1)
+                {
+                    _neighbours.Add(tile);
+                }
+            } else if (tile.Coordinates.y == _coordinates.y)
+            {
+                if (tile.Coordinates.x == _coordinates.x + 1 || tile.Coordinates.x == _coordinates.x - 1)
+                {
+                    _neighbours.Add(tile);
+                }
+            }
+
+            if (_neighbours.Count == 4) break;
+        }
     }
 
     public void OnSelect(SelectedTileDisplay selectedTile)
