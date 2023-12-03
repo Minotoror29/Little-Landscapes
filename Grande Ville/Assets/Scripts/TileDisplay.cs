@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public enum TileState { Inactive, Empty, Occupied }
 
-public class TileDisplay : MonoBehaviour
+public class TileDisplay : MonoBehaviour, ISelectable
 {
     private TileState _currentState;
 
@@ -40,8 +40,8 @@ public class TileDisplay : MonoBehaviour
         _coordinates.y = (int)transform.position.y + 3;
     }
 
-    private void OnMouseDown()
+    public void OnSelect()
     {
-        Debug.Log("Click");
+        Debug.Log("Click Tile");
     }
 }

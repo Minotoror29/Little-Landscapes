@@ -2,13 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class TileSlot : MonoBehaviour, IPointerDownHandler
+public class TileSlot : MonoBehaviour, ISelectable
 {
     private TileData _tile;
 
-    public void OnPointerDown(PointerEventData eventData)
+    [SerializeField] private Image image;
+
+    public void SetTile(TileData tile)
     {
-        Debug.Log("Click");
+        _tile = tile;
+        image.sprite = tile.sprite;
+    }
+
+    public void OnSelect()
+    {
+        Debug.Log("Click Slot");
     }
 }
