@@ -29,7 +29,7 @@ public class SelectedTileDisplay : MonoBehaviour
     public void PlayTile()
     {
         RemoveTile();
-        _slot.RemoveTile();
+        _slot.EmptySlot();
     }
 
     private void RemoveTile()

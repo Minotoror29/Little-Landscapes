@@ -6,14 +6,22 @@ using UnityEngine.UI;
 
 public class TileSlot : MonoBehaviour, ISelectable
 {
+    private GameManager _gameManager;
+
     private TileData _tile;
 
     [SerializeField] private Image image;
+
+    public void Initialize(GameManager gameManager)
+    {
+        _gameManager = gameManager;
+    }
 
     public void SetTile(TileData tile)
     {
         _tile = tile;
         image.sprite = tile.sprite;
+        image.gameObject.SetActive(true);
     }
 
     public void OnSelect(SelectedTileDisplay selectedTile)
@@ -43,9 +51,11 @@ public class TileSlot : MonoBehaviour, ISelectable
         image.gameObject.SetActive(true);
     }
 
-    public void RemoveTile()
+    public void EmptySlot()
     {
         _tile = null;
         image.sprite = null;
+
+        _gameManager.EmptySlot();
     }
 }
