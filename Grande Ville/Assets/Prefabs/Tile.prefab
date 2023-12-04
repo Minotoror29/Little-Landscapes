@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 6821557193697995301}
   inactiveSprite: {fileID: 956762356, guid: fd0070d4f20b0a0428814140b06d9507, type: 3}
-  emptySprite: {fileID: -914490262, guid: fd0070d4f20b0a0428814140b06d9507, type: 3}
+  emptySprite: {fileID: 1701750557, guid: fd0070d4f20b0a0428814140b06d9507, type: 3}
 --- !u!61 &-3841917302631731395
 BoxCollider2D:
   m_ObjectHideFlags: 0

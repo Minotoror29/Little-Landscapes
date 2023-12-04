@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 832277004534f9d48b6b20126b9afab2, type: 3}
-  m_Name: Grass
+  m_Name: Mountains
   m_EditorClassIdentifier: 
-  sprite: {fileID: 2022979636, guid: fd0070d4f20b0a0428814140b06d9507, type: 3}
+  sprite: {fileID: -1113730823, guid: fd0070d4f20b0a0428814140b06d9507, type: 3}
