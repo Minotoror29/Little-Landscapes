@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
+    private GameManager _gameManager;
+
     [SerializeField] private List<TileDisplay> tiles;
     [SerializeField] private TileDisplay startTile;
 
-    private void Start()
+    public void Initialize(GameManager gameManager)
     {
-        Initialize();
-    }
+        _gameManager = gameManager;
 
-    public void Initialize()
-    {
         foreach (TileDisplay tile in tiles)
         {
-            tile.Initialize();
+            tile.Initialize(_gameManager);
         }
 
         foreach (TileDisplay tile in tiles)

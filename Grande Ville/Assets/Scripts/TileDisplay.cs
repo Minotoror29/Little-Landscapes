@@ -7,6 +7,8 @@ public enum TileState { Inactive, Empty, Occupied }
 
 public class TileDisplay : MonoBehaviour, ISelectable
 {
+    private GameManager _gameManager;
+
     private TileState _currentState;
 
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -18,10 +20,14 @@ public class TileDisplay : MonoBehaviour, ISelectable
 
     private TileData _tile;
 
+    public TileData Tile { get { return _tile; } }
+
     public Vector2Int Coordinates { get { return _coordinates; } }
 
-    public void Initialize()
+    public void Initialize(GameManager gameManager)
     {
+        _gameManager = gameManager;
+
         SetCoordinates();
         ChangeState(TileState.Inactive);
     }
@@ -89,10 +95,20 @@ public class TileDisplay : MonoBehaviour, ISelectable
                 _tile = selectedTile.SelectedTile;
                 spriteRenderer.sprite = _tile.sprite;
                 _currentState = TileState.Occupied;
+                _gameManager.GainPoints(_tile.score);
 
                 foreach (TileDisplay tile in _neighbours)
                 {
                     tile.ChangeState(TileState.Empty);
+
+                    foreach (Interaction interaction in _tile.interactions)
+                    {
+                        if (tile.Tile == interaction.tile)
+                        {
+                            _gameManager.GainPoints(interaction.score);
+                            break;
+                        }
+                    }
                 }
 
                 selectedTile.PlayTile();
