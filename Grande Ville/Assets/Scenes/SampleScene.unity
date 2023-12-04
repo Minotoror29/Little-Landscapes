@@ -4183,7 +4183,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2d1c1b4aa0e3c1446bcab50b572f7df4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4192,7 +4192,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &1913503877
@@ -4445,6 +4445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilesData:
   - {fileID: 11400000, guid: c5e14f914f3da1f4e846e490e7dc4eb5, type: 2}
+  - {fileID: 11400000, guid: 108bda1f5fce3c04c8a81855f661b4f1, type: 2}
   slots:
   - {fileID: 1710937859}
   - {fileID: 216617025}
