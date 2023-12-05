@@ -14,3 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: -1113730823, guid: fd0070d4f20b0a0428814140b06d9507, type: 3}
   score: 1
+  interactions:
+  - tile: {fileID: 11400000}
+    score: 1
+  - tile: {fileID: 11400000, guid: a8e6f58910efa9344a923ee4f2f05827, type: 2}
+    score: 1

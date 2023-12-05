@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public enum TileState { Inactive, Empty, Occupied }
+public enum TileState { Inactive, Empty, Occupied, Ocean }
 
 public class TileDisplay : MonoBehaviour, ISelectable
 {
     private GameManager _gameManager;
 
-    private TileState _currentState;
+    [SerializeField] private TileState currentState;
 
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite inactiveSprite;
@@ -18,9 +18,9 @@ public class TileDisplay : MonoBehaviour, ISelectable
     private Vector2Int _coordinates;
     private List<TileDisplay> _neighbours;
 
-    private TileData _tile;
+    [SerializeField] private TileData tile;
 
-    public TileData Tile { get { return _tile; } }
+    public TileData Tile { get { return tile; } }
 
     public Vector2Int Coordinates { get { return _coordinates; } }
 
@@ -29,29 +29,34 @@ public class TileDisplay : MonoBehaviour, ISelectable
         _gameManager = gameManager;
 
         SetCoordinates();
-        ChangeState(TileState.Inactive);
+        if (tile == null)
+        {
+            ChangeState(TileState.Inactive);
+        }
     }
 
     public void ChangeState(TileState nextState)
     {
+        if (currentState == TileState.Ocean) return;
+
         if (nextState == TileState.Empty)
         {
-            if (_currentState == TileState.Inactive)
+            if (currentState == TileState.Inactive)
             {
-                _currentState = nextState;
+                currentState = nextState;
             } else
             {
                 return;
             }
         } else
         {
-            _currentState = nextState;
+            currentState = nextState;
         }
 
-        if (_currentState == TileState.Inactive)
+        if (currentState == TileState.Inactive)
         {
             spriteRenderer.sprite = inactiveSprite;
-        } else if (_currentState == TileState.Empty)
+        } else if (currentState == TileState.Empty)
         {
             spriteRenderer.sprite = emptySprite;
         }
@@ -90,18 +95,18 @@ public class TileDisplay : MonoBehaviour, ISelectable
     {
         if (selectedTile.SelectedTile)
         {
-            if (_currentState == TileState.Empty)
+            if (currentState == TileState.Empty)
             {
-                _tile = selectedTile.SelectedTile;
-                spriteRenderer.sprite = _tile.sprite;
-                _currentState = TileState.Occupied;
-                _gameManager.GainPoints(_tile.score);
+                tile = selectedTile.SelectedTile;
+                spriteRenderer.sprite = tile.sprite;
+                currentState = TileState.Occupied;
+                _gameManager.GainPoints(tile.score);
 
                 foreach (TileDisplay tile in _neighbours)
                 {
                     tile.ChangeState(TileState.Empty);
 
-                    foreach (Interaction interaction in _tile.interactions)
+                    foreach (Interaction interaction in this.tile.interactions)
                     {
                         if (tile.Tile == interaction.tile)
                         {
