@@ -20,6 +20,8 @@ public class TileDisplay : MonoBehaviour, ISelectable
 
     [SerializeField] private TileData tile;
 
+    [SerializeField] private Animator animator;
+
     public TileData Tile { get { return tile; } }
 
     public Vector2Int Coordinates { get { return _coordinates; } }
@@ -37,16 +39,13 @@ public class TileDisplay : MonoBehaviour, ISelectable
 
     public void ChangeState(TileState nextState)
     {
-        if (currentState == TileState.Ocean) return;
+        if (currentState == TileState.Ocean || currentState == TileState.Occupied) return;
 
         if (nextState == TileState.Empty)
         {
             if (currentState == TileState.Inactive)
             {
                 currentState = nextState;
-            } else
-            {
-                return;
             }
         } else
         {
@@ -60,6 +59,8 @@ public class TileDisplay : MonoBehaviour, ISelectable
         {
             spriteRenderer.sprite = emptySprite;
         }
+
+        animator.CrossFade("TileDisplay_Spawn", 0f);
     }
 
     private void SetCoordinates()
@@ -99,17 +100,17 @@ public class TileDisplay : MonoBehaviour, ISelectable
             {
                 tile = selectedTile.SelectedTile;
                 spriteRenderer.sprite = tile.sprite;
-                currentState = TileState.Occupied;
+                ChangeState(TileState.Occupied);
 
-                foreach (TileDisplay tile in _neighbours)
+                foreach (TileDisplay neighbour in _neighbours)
                 {
-                    tile.ChangeState(TileState.Empty);
+                    neighbour.ChangeState(TileState.Empty);
 
                     foreach (Interaction interaction in this.tile.interactions)
                     {
-                        if (tile.Tile == interaction.tile)
+                        if (neighbour.Tile == interaction.tile)
                         {
-                            _gameManager.GainPoints(interaction.score);
+                            _gameManager.GainPoints(interaction.score, neighbour);
                             break;
                         }
                     }

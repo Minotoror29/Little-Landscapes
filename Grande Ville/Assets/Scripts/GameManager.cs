@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     private int _emptySlots;
 
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private ScoreDisplay scoreDisplay;
+    [SerializeField] private Canvas worldSpaceCanvas;
     private int _score;
 
     private void Start()
@@ -61,9 +63,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GainPoints(int amount)
+    public void GainPoints(int amount, TileDisplay tile)
     {
         _score += amount;
         scoreText.text = _score.ToString();
+
+        ScoreDisplay newScore = Instantiate(scoreDisplay, new Vector2(tile.Coordinates.x - 3, tile.Coordinates.y - 3), Quaternion.identity, worldSpaceCanvas.transform);
+        newScore.Initialize(amount);
+        Destroy(newScore.gameObject, 1f);
     }
 }

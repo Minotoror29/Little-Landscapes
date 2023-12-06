@@ -130,11 +130,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2a2ff5d2edb78469e78778375ad460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 3
+  currentState: 2
   spriteRenderer: {fileID: 7946791932873759766}
   inactiveSprite: {fileID: 956762356, guid: fd0070d4f20b0a0428814140b06d9507, type: 3}
   emptySprite: {fileID: 1701750557, guid: fd0070d4f20b0a0428814140b06d9507, type: 3}
   tile: {fileID: 11400000, guid: aaf84100434014c4589d9d9a73735998, type: 2}
+  animator: {fileID: 0}
 --- !u!61 &8812809554744383758
 BoxCollider2D:
   m_ObjectHideFlags: 0
