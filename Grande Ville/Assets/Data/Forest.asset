@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: Forest
   m_EditorClassIdentifier: 
   sprite: {fileID: 1732507689, guid: fd0070d4f20b0a0428814140b06d9507, type: 3}
-  score: 1
   interactions:
   - tile: {fileID: 11400000, guid: 108bda1f5fce3c04c8a81855f661b4f1, type: 2}
-    score: 1
+    score: 10
   - tile: {fileID: 11400000}
-    score: 1
+    score: 15
+  - tile: {fileID: 11400000, guid: aaf84100434014c4589d9d9a73735998, type: 2}
+    score: -10
+  - tile: {fileID: 11400000, guid: 94192865aa31b5240bd2a2693337511c, type: 2}
+    score: -5
