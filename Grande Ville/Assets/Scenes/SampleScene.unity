@@ -6882,10 +6882,6 @@ MonoBehaviour:
   gridManager: {fileID: 1651803658}
   tilesData:
   - {fileID: 11400000, guid: c5e14f914f3da1f4e846e490e7dc4eb5, type: 2}
-  - {fileID: 11400000, guid: 108bda1f5fce3c04c8a81855f661b4f1, type: 2}
-  - {fileID: 11400000, guid: a8e6f58910efa9344a923ee4f2f05827, type: 2}
-  - {fileID: 11400000, guid: 8602090dcf7e9fc488be11e2c67fa4ea, type: 2}
-  - {fileID: 11400000, guid: 94192865aa31b5240bd2a2693337511c, type: 2}
   slots:
   - {fileID: 1710937859}
   - {fileID: 216617025}

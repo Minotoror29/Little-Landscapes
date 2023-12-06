@@ -18,3 +18,16 @@ MonoBehaviour:
     score: 10
   - tile: {fileID: 11400000, guid: 94192865aa31b5240bd2a2693337511c, type: 2}
     score: 5
+  baseSprite: {fileID: 177849708, guid: 3a65dd50f940b584dbc5bdff2750327e, type: 3}
+  squareTopLeftSprite: {fileID: -1787466299, guid: 3a65dd50f940b584dbc5bdff2750327e, type: 3}
+  squareTopSprite: {fileID: 73387223, guid: 3a65dd50f940b584dbc5bdff2750327e, type: 3}
+  squareTopRightSprite: {fileID: -259716890, guid: 3a65dd50f940b584dbc5bdff2750327e, type: 3}
+  squareLeftSprite: {fileID: -355622761, guid: 3a65dd50f940b584dbc5bdff2750327e, type: 3}
+  squareMiddleSprite: {fileID: -2048362101, guid: 3a65dd50f940b584dbc5bdff2750327e, type: 3}
+  squareRightSprite: {fileID: 2081548655, guid: 3a65dd50f940b584dbc5bdff2750327e, type: 3}
+  squareBottomLeftSprite: {fileID: -1828953172, guid: 3a65dd50f940b584dbc5bdff2750327e, type: 3}
+  squareBottomSprite: {fileID: 1570894273, guid: 3a65dd50f940b584dbc5bdff2750327e, type: 3}
+  squareBottomRightSprite: {fileID: 1701948441, guid: 3a65dd50f940b584dbc5bdff2750327e, type: 3}
+  lineLeftSprite: {fileID: 1197179796, guid: 3a65dd50f940b584dbc5bdff2750327e, type: 3}
+  lineMiddleSprite: {fileID: -1249931773, guid: 3a65dd50f940b584dbc5bdff2750327e, type: 3}
+  lineRightSprite: {fileID: -1480893240, guid: 3a65dd50f940b584dbc5bdff2750327e, type: 3}

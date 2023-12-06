@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public enum TileState { Inactive, Empty, Occupied, Ocean }
+public enum TileState { Inactive, Empty, Occupied }
 
 public class TileDisplay : MonoBehaviour, ISelectable
 {
@@ -22,8 +22,9 @@ public class TileDisplay : MonoBehaviour, ISelectable
 
     [SerializeField] private Animator animator;
 
-    public TileData Tile { get { return tile; } }
+    [SerializeField] private TileSpriteManager spriteManager;
 
+    public TileData Tile { get { return tile; } }
     public Vector2Int Coordinates { get { return _coordinates; } }
 
     public void Initialize(GameManager gameManager)
@@ -31,6 +32,8 @@ public class TileDisplay : MonoBehaviour, ISelectable
         _gameManager = gameManager;
 
         SetCoordinates();
+        spriteManager.Initialize(this);
+
         if (tile == null)
         {
             ChangeState(TileState.Inactive);
@@ -39,7 +42,7 @@ public class TileDisplay : MonoBehaviour, ISelectable
 
     public void ChangeState(TileState nextState)
     {
-        if (currentState == TileState.Ocean || currentState == TileState.Occupied) return;
+        if (currentState == TileState.Occupied) return;
 
         if (nextState == TileState.Empty)
         {
@@ -92,6 +95,13 @@ public class TileDisplay : MonoBehaviour, ISelectable
         }
     }
 
+    public void SetSprite()
+    {
+        if (currentState != TileState.Occupied) return;
+
+        spriteManager.CheckNeighbours(_neighbours);
+    }
+
     public void OnSelect(SelectedTileDisplay selectedTile)
     {
         if (selectedTile.SelectedTile)
@@ -101,12 +111,14 @@ public class TileDisplay : MonoBehaviour, ISelectable
                 tile = selectedTile.SelectedTile;
                 spriteRenderer.sprite = tile.sprite;
                 ChangeState(TileState.Occupied);
+                SetSprite();
 
                 foreach (TileDisplay neighbour in _neighbours)
                 {
                     neighbour.ChangeState(TileState.Empty);
+                    neighbour.SetSprite();
 
-                    foreach (Interaction interaction in this.tile.interactions)
+                    foreach (Interaction interaction in tile.interactions)
                     {
                         if (neighbour.Tile == interaction.tile)
                         {
