@@ -49,6 +49,9 @@ public class TileDisplay : MonoBehaviour, ISelectable
             if (currentState == TileState.Inactive)
             {
                 currentState = nextState;
+            } else
+            {
+                return;
             }
         } else
         {
@@ -109,7 +112,6 @@ public class TileDisplay : MonoBehaviour, ISelectable
             if (currentState == TileState.Empty)
             {
                 tile = selectedTile.SelectedTile;
-                spriteRenderer.sprite = tile.sprite;
                 ChangeState(TileState.Occupied);
                 SetSprite();
 

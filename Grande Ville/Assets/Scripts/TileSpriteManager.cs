@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class TileSpriteManager : MonoBehaviour
 {
@@ -15,7 +16,6 @@ public class TileSpriteManager : MonoBehaviour
 
     public void CheckNeighbours(List<TileDisplay> neighbours)
     {
-
         List<TileDisplay> sameNeighbours = new();
         foreach (TileDisplay neighbour in neighbours)
         {
@@ -30,8 +30,6 @@ public class TileSpriteManager : MonoBehaviour
             _spriteRenderer.sprite = _tile.Tile.baseSprite;
             return;
         }
-
-        Debug.Log(_tile.Coordinates.x + "," + _tile.Coordinates.y + " Check neighbours");
 
         bool top = false;
         bool bottom = false;

@@ -6881,6 +6881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridManager: {fileID: 1651803658}
   tilesData:
+  - {fileID: 11400000, guid: a8e6f58910efa9344a923ee4f2f05827, type: 2}
   - {fileID: 11400000, guid: c5e14f914f3da1f4e846e490e7dc4eb5, type: 2}
   slots:
   - {fileID: 1710937859}

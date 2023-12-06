@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832277004534f9d48b6b20126b9afab2, type: 3}
   m_Name: Forest
   m_EditorClassIdentifier: 
-  sprite: {fileID: 1732507689, guid: fd0070d4f20b0a0428814140b06d9507, type: 3}
   interactions:
   - tile: {fileID: 11400000, guid: 108bda1f5fce3c04c8a81855f661b4f1, type: 2}
     score: 10
@@ -22,3 +21,19 @@ MonoBehaviour:
     score: -10
   - tile: {fileID: 11400000, guid: 94192865aa31b5240bd2a2693337511c, type: 2}
     score: -5
+  baseSprite: {fileID: -439937518, guid: 9b0b7661f8c518c4196441d823ad2377, type: 3}
+  squareTopLeftSprite: {fileID: -805158334, guid: 9b0b7661f8c518c4196441d823ad2377, type: 3}
+  squareTopSprite: {fileID: -786121453, guid: 9b0b7661f8c518c4196441d823ad2377, type: 3}
+  squareTopRightSprite: {fileID: 1448985824, guid: 9b0b7661f8c518c4196441d823ad2377, type: 3}
+  vLineTopSprite: {fileID: 1978225890, guid: 9b0b7661f8c518c4196441d823ad2377, type: 3}
+  squareLeftSprite: {fileID: -317057688, guid: 9b0b7661f8c518c4196441d823ad2377, type: 3}
+  squareMiddleSprite: {fileID: -262967624, guid: 9b0b7661f8c518c4196441d823ad2377, type: 3}
+  squareRightSprite: {fileID: -441181193, guid: 9b0b7661f8c518c4196441d823ad2377, type: 3}
+  vLineMiddleSprite: {fileID: 304849371, guid: 9b0b7661f8c518c4196441d823ad2377, type: 3}
+  squareBottomLeftSprite: {fileID: 66939106, guid: 9b0b7661f8c518c4196441d823ad2377, type: 3}
+  squareBottomSprite: {fileID: -1222610503, guid: 9b0b7661f8c518c4196441d823ad2377, type: 3}
+  squareBottomRightSprite: {fileID: 1249533029, guid: 9b0b7661f8c518c4196441d823ad2377, type: 3}
+  vLineBottomSprite: {fileID: -786756039, guid: 9b0b7661f8c518c4196441d823ad2377, type: 3}
+  hLineLeftSprite: {fileID: -1225708941, guid: 9b0b7661f8c518c4196441d823ad2377, type: 3}
+  hLineMiddleSprite: {fileID: -1232683325, guid: 9b0b7661f8c518c4196441d823ad2377, type: 3}
+  hLineRightSprite: {fileID: 731482784, guid: 9b0b7661f8c518c4196441d823ad2377, type: 3}
