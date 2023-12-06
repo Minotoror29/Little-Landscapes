@@ -19,3 +19,5 @@ MonoBehaviour:
     score: 1
   - tile: {fileID: 11400000, guid: aaf84100434014c4589d9d9a73735998, type: 2}
     score: 1
+  - tile: {fileID: 11400000}
+    score: 1

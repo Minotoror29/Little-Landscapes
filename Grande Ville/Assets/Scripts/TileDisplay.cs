@@ -100,7 +100,6 @@ public class TileDisplay : MonoBehaviour, ISelectable
                 tile = selectedTile.SelectedTile;
                 spriteRenderer.sprite = tile.sprite;
                 currentState = TileState.Occupied;
-                _gameManager.GainPoints(tile.score);
 
                 foreach (TileDisplay tile in _neighbours)
                 {

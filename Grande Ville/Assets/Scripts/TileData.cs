@@ -6,6 +6,5 @@ using UnityEngine;
 public class TileData : ScriptableObject
 {
     public Sprite sprite;
-    public int score;
     public List<Interaction> interactions;
 }
