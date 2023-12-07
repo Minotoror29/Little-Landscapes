@@ -21,8 +21,6 @@ public class TileDisplay : MonoBehaviour, ISelectable
 
     [SerializeField] private TileData tile;
 
-    [SerializeField] private Animator animator;
-
     private TilemapManager _tilemapManager;
 
     public TileData Tile { get { return tile; } }
@@ -58,8 +56,6 @@ public class TileDisplay : MonoBehaviour, ISelectable
         {
             _tilemapManager.SetEmptyTile(new Vector3Int(Coordinates.x, Coordinates.y));
         }
-
-        animator.CrossFade("TileDisplay_Spawn", 0f);
     }
 
     private void SetCoordinates()
