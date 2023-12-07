@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832277004534f9d48b6b20126b9afab2, type: 3}
   m_Name: Mountains
   m_EditorClassIdentifier: 
-  sprite: {fileID: -1113730823, guid: fd0070d4f20b0a0428814140b06d9507, type: 3}
   interactions:
   - tile: {fileID: 11400000}
     score: 15
@@ -20,3 +19,4 @@ MonoBehaviour:
     score: 10
   - tile: {fileID: 11400000, guid: 94192865aa31b5240bd2a2693337511c, type: 2}
     score: -10
+  ruleTile: {fileID: 11400000, guid: b2ab3748cc08cc74b8ee73848a0045ec, type: 2}
