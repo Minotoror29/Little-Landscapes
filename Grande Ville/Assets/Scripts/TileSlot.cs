@@ -20,7 +20,7 @@ public class TileSlot : MonoBehaviour, ISelectable
     public void SetTile(TileData tile)
     {
         _tile = tile;
-        image.sprite = tile.baseSprite;
+        image.sprite = tile.ruleTile.m_DefaultSprite;
         image.gameObject.SetActive(true);
     }
 

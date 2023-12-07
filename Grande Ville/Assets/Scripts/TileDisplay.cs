@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Tilemaps;
 
 public enum TileState { Inactive, Empty, Occupied }
 
@@ -22,22 +23,17 @@ public class TileDisplay : MonoBehaviour, ISelectable
 
     [SerializeField] private Animator animator;
 
-    [SerializeField] private TileSpriteManager spriteManager;
+    private TilemapManager _tilemapManager;
 
     public TileData Tile { get { return tile; } }
     public Vector2Int Coordinates { get { return _coordinates; } }
 
-    public void Initialize(GameManager gameManager)
+    public void Initialize(GameManager gameManager, TilemapManager tilemapManager)
     {
         _gameManager = gameManager;
+        _tilemapManager = tilemapManager;
 
         SetCoordinates();
-        spriteManager.Initialize(this);
-
-        if (tile == null)
-        {
-            ChangeState(TileState.Inactive);
-        }
     }
 
     public void ChangeState(TileState nextState)
@@ -58,12 +54,9 @@ public class TileDisplay : MonoBehaviour, ISelectable
             currentState = nextState;
         }
 
-        if (currentState == TileState.Inactive)
+        if (currentState == TileState.Empty)
         {
-            spriteRenderer.sprite = inactiveSprite;
-        } else if (currentState == TileState.Empty)
-        {
-            spriteRenderer.sprite = emptySprite;
+            _tilemapManager.SetEmptyTile(new Vector3Int(Coordinates.x, Coordinates.y));
         }
 
         animator.CrossFade("TileDisplay_Spawn", 0f);
@@ -98,13 +91,6 @@ public class TileDisplay : MonoBehaviour, ISelectable
         }
     }
 
-    public void SetSprite()
-    {
-        if (currentState != TileState.Occupied) return;
-
-        spriteManager.CheckNeighbours(_neighbours);
-    }
-
     public void OnSelect(SelectedTileDisplay selectedTile)
     {
         if (selectedTile.SelectedTile)
@@ -113,12 +99,11 @@ public class TileDisplay : MonoBehaviour, ISelectable
             {
                 tile = selectedTile.SelectedTile;
                 ChangeState(TileState.Occupied);
-                SetSprite();
+                _tilemapManager.SetOccupiedTile(new Vector3Int(Coordinates.x, Coordinates.y), tile.ruleTile);
 
                 foreach (TileDisplay neighbour in _neighbours)
                 {
                     neighbour.ChangeState(TileState.Empty);
-                    neighbour.SetSprite();
 
                     foreach (Interaction interaction in tile.interactions)
                     {

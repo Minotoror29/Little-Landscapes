@@ -16,7 +16,7 @@ public class SelectedTileDisplay : MonoBehaviour
     {
         _selectedTile = tile;
         _slot = slot;
-        spriteRenderer.sprite = tile.baseSprite;
+        spriteRenderer.sprite = tile.ruleTile.m_DefaultSprite;
         spriteRenderer.gameObject.SetActive(true);
     }
 
