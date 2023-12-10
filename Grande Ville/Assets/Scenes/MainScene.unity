@@ -578,7 +578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835356815293815868, guid: 442cd432acf65ba40ad497b8d8b65521, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4835356815293815868, guid: 442cd432acf65ba40ad497b8d8b65521, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2119,7 +2119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835356815293815868, guid: 442cd432acf65ba40ad497b8d8b65521, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4835356815293815868, guid: 442cd432acf65ba40ad497b8d8b65521, type: 3}
       propertyPath: m_AnchorMax.x
@@ -8593,6 +8593,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 108bda1f5fce3c04c8a81855f661b4f1, type: 2}
   - {fileID: 11400000, guid: 8602090dcf7e9fc488be11e2c67fa4ea, type: 2}
   - {fileID: 11400000, guid: 94192865aa31b5240bd2a2693337511c, type: 2}
+  slotsDisplay: {fileID: 1075932970}
   slots:
   - {fileID: 1710937859}
   - {fileID: 216617025}
@@ -8600,6 +8601,7 @@ MonoBehaviour:
   scoreText: {fileID: 1422481348}
   scoreDisplay: {fileID: -2899903112528619620, guid: edd2855a811dfb74c9cd2e8dd2ef5920, type: 3}
   worldSpaceCanvas: {fileID: 1370509308}
+  gameOverCanvas: {fileID: 812811919}
 --- !u!4 &1989480458
 Transform:
   m_ObjectHideFlags: 0
@@ -8908,7 +8910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835356815293815868, guid: 442cd432acf65ba40ad497b8d8b65521, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4835356815293815868, guid: 442cd432acf65ba40ad497b8d8b65521, type: 3}
       propertyPath: m_AnchorMax.x

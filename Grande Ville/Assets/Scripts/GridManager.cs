@@ -12,13 +12,15 @@ public class GridManager : MonoBehaviour
 
     [SerializeField] private TilemapManager tilemapManager;
 
+    private int _emptyTiles;
+
     public void Initialize(GameManager gameManager)
     {
         _gameManager = gameManager;
 
         foreach (TileDisplay tile in tiles)
         {
-            tile.Initialize(_gameManager, tilemapManager);
+            tile.Initialize(_gameManager, this, tilemapManager);
         }
 
         foreach (TileDisplay tile in tiles)
@@ -27,5 +29,17 @@ public class GridManager : MonoBehaviour
         }
 
         startTile.ChangeState(TileState.Empty);
+
+        _emptyTiles = 49;
+    }
+
+    public void PlayTile()
+    {
+        _emptyTiles--;
+
+        if (_emptyTiles == 0)
+        {
+            _gameManager.GameOver();
+        }
     }
 }

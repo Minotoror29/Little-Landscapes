@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private List<TileData> tilesData;
 
+    [SerializeField] private GameObject slotsDisplay;
     [SerializeField] private List<TileSlot> slots;
     private int _emptySlots;
 
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ScoreDisplay scoreDisplay;
     [SerializeField] private Canvas worldSpaceCanvas;
     private int _score;
+
+    [SerializeField] private Canvas gameOverCanvas;
 
     private void Start()
     {
@@ -71,5 +74,11 @@ public class GameManager : MonoBehaviour
         ScoreDisplay newScore = Instantiate(scoreDisplay, new Vector2(tile.Coordinates.x - 3, tile.Coordinates.y - 3), Quaternion.identity, worldSpaceCanvas.transform);
         newScore.Initialize(amount);
         Destroy(newScore.gameObject, 1f);
+    }
+
+    public void GameOver()
+    {
+        gameOverCanvas.gameObject.SetActive(true);
+        slotsDisplay.gameObject.SetActive(false);
     }
 }

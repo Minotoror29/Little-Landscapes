@@ -9,6 +9,7 @@ public enum TileState { Inactive, Empty, Occupied }
 public class TileDisplay : MonoBehaviour, ISelectable
 {
     private GameManager _gameManager;
+    private GridManager _gridManager;
 
     [SerializeField] private TileState currentState;
 
@@ -26,9 +27,10 @@ public class TileDisplay : MonoBehaviour, ISelectable
     public TileData Tile { get { return tile; } }
     public Vector2Int Coordinates { get { return _coordinates; } }
 
-    public void Initialize(GameManager gameManager, TilemapManager tilemapManager)
+    public void Initialize(GameManager gameManager, GridManager gridManager, TilemapManager tilemapManager)
     {
         _gameManager = gameManager;
+        _gridManager = gridManager;
         _tilemapManager = tilemapManager;
 
         SetCoordinates();
@@ -112,6 +114,8 @@ public class TileDisplay : MonoBehaviour, ISelectable
                 }
 
                 selectedTile.PlayTile();
+
+                _gridManager.PlayTile();
             }
         }
     }
