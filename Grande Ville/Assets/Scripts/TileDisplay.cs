@@ -97,7 +97,8 @@ public class TileDisplay : MonoBehaviour, ISelectable
             {
                 tile = selectedTile.SelectedTile;
                 ChangeState(TileState.Occupied);
-                _tilemapManager.SetOccupiedTile(new Vector3Int(Coordinates.x, Coordinates.y), tile.ruleTile);
+                //_tilemapManager.SetOccupiedTile(new Vector3Int(Coordinates.x, Coordinates.y), tile.ruleTile);
+                _tilemapManager.SpawnOccupiedTile(new Vector3Int(Coordinates.x, Coordinates.y), tile);
 
                 foreach (TileDisplay neighbour in _neighbours)
                 {

@@ -876,6 +876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap: {fileID: 1832168035}
   emptyTile: {fileID: 11400000, guid: 002fdd613db2d7c4e98da2d4a7af2f5a, type: 2}
+  spawningTile: {fileID: 1655020422063760194, guid: 210f170cf3940b04c96df8c0865dc397, type: 3}
 --- !u!1001 &288875744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4568,7 +4569,7 @@ GameObject:
   - component: {fileID: 1310448346}
   - component: {fileID: 1310448345}
   m_Layer: 0
-  m_Name: Tilemap
+  m_Name: Ocean
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7721,7 +7722,7 @@ GameObject:
   - component: {fileID: 1832168035}
   - component: {fileID: 1832168034}
   m_Layer: 0
-  m_Name: Tilemap
+  m_Name: Tiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
