@@ -8,11 +8,6 @@ public class SelectionManager : MonoBehaviour
     [SerializeField] private LayerMask selectableLayer;
     [SerializeField] private SelectedTileDisplay selectedTileDisplay;
 
-    private void Update()
-    {
-        UpdateLogic();
-    }
-
     public void UpdateLogic()
     {
         selectedTileDisplay.UpdateLogic();

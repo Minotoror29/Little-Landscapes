@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    private GameState _currentState;
+
     [SerializeField] private GridManager gridManager;
+    [SerializeField] private SelectionManager selectionManager;
 
     [SerializeField] private List<TileData> tilesData;
 
@@ -20,6 +23,9 @@ public class GameManager : MonoBehaviour
     private int _score;
 
     [SerializeField] private Canvas gameOverCanvas;
+
+    public GridManager GridManager { get { return gridManager; } }
+    public SelectionManager SelectionManager { get { return selectionManager; } }
 
     private void Start()
     {
@@ -39,6 +45,8 @@ public class GameManager : MonoBehaviour
 
         _score = 0;
         scoreText.text = _score.ToString();
+
+        ChangeState(new GamePlayState(this));
     }
 
     private void FillSlots()
@@ -55,6 +63,13 @@ public class GameManager : MonoBehaviour
     {
         int randomIndex = Random.Range(0, tilesData.Count);
         return tilesData[randomIndex];
+    }
+
+    public void ChangeState(GameState nextState)
+    {
+        _currentState?.Exit();
+        _currentState = nextState;
+        _currentState.Enter();
     }
 
     public void EmptySlot()
@@ -91,5 +106,10 @@ public class GameManager : MonoBehaviour
     public void Retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void Update()
+    {
+        _currentState.Updatelogic();
     }
 }

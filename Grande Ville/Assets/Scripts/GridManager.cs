@@ -37,9 +37,11 @@ public class GridManager : MonoBehaviour
     {
         _emptyTiles--;
 
-        if (_emptyTiles == 0)
-        {
-            _gameManager.GameOver();
-        }
+        _gameManager.ChangeState(new GameScoreState(_gameManager));
+    }
+
+    public bool IsGameOver()
+    {
+        return _emptyTiles == 0;
     }
 }
