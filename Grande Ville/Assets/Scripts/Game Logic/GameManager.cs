@@ -20,12 +20,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private ScoreDisplay scoreDisplay;
     [SerializeField] private Canvas worldSpaceCanvas;
+    [SerializeField] private BonusScore bonusScorePrefab;
+    [SerializeField] private Transform scoreTransform;
     private int _score;
 
     [SerializeField] private Canvas gameOverCanvas;
 
     public GridManager GridManager { get { return gridManager; } }
     public SelectionManager SelectionManager { get { return selectionManager; } }
+    public BonusScore BonusScorePrefab { get { return bonusScorePrefab; } }
 
     private void Start()
     {
@@ -85,11 +88,24 @@ public class GameManager : MonoBehaviour
     public void GainPoints(int amount, TileDisplay tile)
     {
         _score += amount;
-        scoreText.text = _score.ToString();
-
+        
         ScoreDisplay newScore = Instantiate(scoreDisplay, new Vector2(tile.Coordinates.x - 3, tile.Coordinates.y - 3), Quaternion.identity, worldSpaceCanvas.transform);
         newScore.Initialize(amount);
         Destroy(newScore.gameObject, 1f);
+    }
+
+    public void BonusScore(int value)
+    {
+        if (value == 0) return;
+
+        BonusScore newBonusScore = Instantiate(bonusScorePrefab, scoreTransform);
+        newBonusScore.Initialize(value);
+        Destroy(newBonusScore.gameObject, 1f);
+    }
+
+    public void UpdateScoreText()
+    {
+        scoreText.text = _score.ToString();
     }
 
     public void GameOver()

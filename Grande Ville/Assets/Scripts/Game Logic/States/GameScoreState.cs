@@ -5,18 +5,23 @@ using UnityEngine;
 public class GameScoreState : GameState
 {
     private float _timer;
+    private int _score;
 
-    public GameScoreState(GameManager gameManager) : base(gameManager)
+    public GameScoreState(GameManager gameManager, int score) : base(gameManager)
     {
+        _score = score;
     }
 
     public override void Enter()
     {
         _timer = 1f;
+
+        GameManager.BonusScore(_score);
     }
 
     public override void Exit()
     {
+        GameManager.UpdateScoreText();
     }
 
     public override void Updatelogic()

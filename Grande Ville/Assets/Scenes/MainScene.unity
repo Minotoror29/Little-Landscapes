@@ -8908,6 +8908,8 @@ MonoBehaviour:
   scoreText: {fileID: 1422481348}
   scoreDisplay: {fileID: -2899903112528619620, guid: edd2855a811dfb74c9cd2e8dd2ef5920, type: 3}
   worldSpaceCanvas: {fileID: 1370509308}
+  bonusScorePrefab: {fileID: 4932259045290310384, guid: 986166816d23d764abfb85b9ed6e6871, type: 3}
+  scoreTransform: {fileID: 1123472406}
   gameOverCanvas: {fileID: 812811919}
 --- !u!4 &1989480458
 Transform:

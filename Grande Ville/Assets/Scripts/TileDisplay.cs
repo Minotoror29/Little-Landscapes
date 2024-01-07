@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.Tilemaps;
 
 public enum TileState { Inactive, Empty, Occupied }
@@ -97,8 +98,8 @@ public class TileDisplay : MonoBehaviour, ISelectable
             {
                 tile = selectedTile.SelectedTile;
                 ChangeState(TileState.Occupied);
-                //_tilemapManager.SetOccupiedTile(new Vector3Int(Coordinates.x, Coordinates.y), tile.ruleTile);
                 _tilemapManager.SpawnOccupiedTile(new Vector3Int(Coordinates.x, Coordinates.y), tile);
+                int score = 0;
 
                 foreach (TileDisplay neighbour in _neighbours)
                 {
@@ -109,6 +110,7 @@ public class TileDisplay : MonoBehaviour, ISelectable
                         if (neighbour.Tile == interaction.tile)
                         {
                             _gameManager.GainPoints(interaction.score, neighbour);
+                            score += interaction.score;
                             break;
                         }
                     }
@@ -117,6 +119,7 @@ public class TileDisplay : MonoBehaviour, ISelectable
                 selectedTile.PlayTile();
 
                 _gridManager.PlayTile();
+                _gameManager.ChangeState(new GameScoreState(_gameManager, score));
             }
         }
     }
