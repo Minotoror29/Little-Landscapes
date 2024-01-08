@@ -14,7 +14,7 @@ public class GridManager : MonoBehaviour
 
     private int _emptyTiles;
 
-    public void Initialize(GameManager gameManager)
+    public IEnumerator Initialize(GameManager gameManager)
     {
         _gameManager = gameManager;
 
@@ -28,9 +28,13 @@ public class GridManager : MonoBehaviour
             tile.SetNeighbours(tiles);
         }
 
-        startTile.ChangeState(TileState.Empty);
-
         _emptyTiles = 49;
+
+        StartCoroutine(tilemapManager.SpawnInactiveTiles(tiles));
+
+        yield return new WaitForSeconds(1.25f);
+
+        startTile.ChangeState(TileState.Empty);
     }
 
     public void PlayTile()

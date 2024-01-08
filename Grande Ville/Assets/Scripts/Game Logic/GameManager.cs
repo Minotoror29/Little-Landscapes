@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     public void Initialize()
     {
-        gridManager.Initialize(this);
+        StartCoroutine(gridManager.Initialize(this));
 
         foreach (TileSlot slot in slots)
         {
@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         _score = 0;
         scoreText.text = _score.ToString();
 
-        ChangeState(new GamePlayState(this));
+        ChangeState(new GameStartState(this));
     }
 
     private void FillSlots()

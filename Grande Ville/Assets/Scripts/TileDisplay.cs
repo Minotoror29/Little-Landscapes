@@ -14,10 +14,6 @@ public class TileDisplay : MonoBehaviour, ISelectable
 
     [SerializeField] private TileState currentState;
 
-    [SerializeField] private SpriteRenderer spriteRenderer;
-    [SerializeField] private Sprite inactiveSprite;
-    [SerializeField] private Sprite emptySprite;
-
     private Vector2Int _coordinates;
     private List<TileDisplay> _neighbours;
 
