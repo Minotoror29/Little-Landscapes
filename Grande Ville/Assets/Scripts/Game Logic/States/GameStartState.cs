@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameStartState : GameState
 {
-    private float _timer = 1.5f;
+    private float _timer = 2f;
 
     public GameStartState(GameManager gameManager) : base(gameManager)
     {

@@ -878,6 +878,70 @@ MonoBehaviour:
   emptyTile: {fileID: 11400000, guid: 002fdd613db2d7c4e98da2d4a7af2f5a, type: 2}
   inactiveTile: {fileID: 11400000, guid: 46f27476c48c2764daf0e63b862374a0, type: 2}
   spawningTile: {fileID: 1655020422063760194, guid: 210f170cf3940b04c96df8c0865dc397, type: 3}
+  tileRows:
+  - tiles:
+    - {fileID: 5710774590830756294}
+  - tiles:
+    - {fileID: 564355221}
+    - {fileID: 1986790811}
+  - tiles:
+    - {fileID: 1035376202}
+    - {fileID: 845433218}
+    - {fileID: 1761414130}
+  - tiles:
+    - {fileID: 1952661188}
+    - {fileID: 587876353}
+    - {fileID: 1673221499}
+    - {fileID: 739679848}
+  - tiles:
+    - {fileID: 1692091282}
+    - {fileID: 789828075}
+    - {fileID: 288875746}
+    - {fileID: 1778853008}
+    - {fileID: 968408569}
+  - tiles:
+    - {fileID: 1913503879}
+    - {fileID: 372920012}
+    - {fileID: 373924327}
+    - {fileID: 1276672818}
+    - {fileID: 1019148392}
+    - {fileID: 427102117}
+  - tiles:
+    - {fileID: 63527614}
+    - {fileID: 379090276}
+    - {fileID: 1161416346}
+    - {fileID: 841044624}
+    - {fileID: 1163178358}
+    - {fileID: 708758102}
+    - {fileID: 1477038654}
+  - tiles:
+    - {fileID: 942048868}
+    - {fileID: 1573166826}
+    - {fileID: 2039998484}
+    - {fileID: 981234434}
+    - {fileID: 1232794360}
+    - {fileID: 1610966441}
+  - tiles:
+    - {fileID: 1376435812}
+    - {fileID: 87861833}
+    - {fileID: 1724676585}
+    - {fileID: 615054966}
+    - {fileID: 1502320954}
+  - tiles:
+    - {fileID: 1694722180}
+    - {fileID: 1467317439}
+    - {fileID: 1867220585}
+    - {fileID: 313644372}
+  - tiles:
+    - {fileID: 1233570363}
+    - {fileID: 2034578243}
+    - {fileID: 477399044}
+  - tiles:
+    - {fileID: 2088904626}
+    - {fileID: 1721557992}
+  - tiles:
+    - {fileID: 651011973}
+  gameOverTile: {fileID: 661487347009085329, guid: b7e22a06c5fd78d46ab473c9cb1019bf, type: 3}
 --- !u!1001 &288875744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9002,6 +9066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridManager: {fileID: 1651803658}
+  tilemapManager: {fileID: 258497757}
   selectionManager: {fileID: 543468109}
   tilesData:
   - {fileID: 11400000, guid: a8e6f58910efa9344a923ee4f2f05827, type: 2}

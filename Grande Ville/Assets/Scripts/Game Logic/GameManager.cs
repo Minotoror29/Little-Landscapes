@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private GameState _currentState;
 
     [SerializeField] private GridManager gridManager;
+    [SerializeField] private TilemapManager tilemapManager;
     [SerializeField] private SelectionManager selectionManager;
 
     [SerializeField] private List<TileData> tilesData;
@@ -112,6 +113,8 @@ public class GameManager : MonoBehaviour
     {
         gameOverCanvas.gameObject.SetActive(true);
         slotsDisplay.gameObject.SetActive(false);
+
+        tilemapManager.GameOverAnimation();
     }
 
     public void MainMenu()

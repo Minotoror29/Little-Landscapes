@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,10 @@ public class TilemapManager : MonoBehaviour
     [SerializeField] private Tile inactiveTile;
     [SerializeField] private SpawningTile spawningTile;
 
+    [Header("Game Over")]
+    [SerializeField] private List<TileDisplayList> tileRows;
+    [SerializeField] private GameOverTile gameOverTile;
+
     public Tilemap TileMap { get { return tilemap; } }
 
     public IEnumerator SpawnInactiveTiles(List<TileDisplay> tiles)
@@ -23,7 +28,7 @@ public class TilemapManager : MonoBehaviour
 
         for (int i = shuffledTiles.Count - 1; i > 0; i--)
         {
-            int j = Random.Range(0, i + 1);
+            int j = UnityEngine.Random.Range(0, i + 1);
 
             TileDisplay temp = shuffledTiles[i];
             shuffledTiles[i] = shuffledTiles[j];
@@ -57,5 +62,32 @@ public class TilemapManager : MonoBehaviour
         tilemap.SetTile(position, null);
         SpawningTile newTile = Instantiate(spawningTile, position - new Vector3Int(3, 3, 0), Quaternion.identity);
         newTile.Initialize(this, tileData.ruleTile, tileData.ruleTile.m_DefaultSprite, position);
+    }
+
+    public void GameOverAnimation()
+    {
+        for (int i = 0; i < tileRows.Count; i++)
+        {
+            foreach (TileDisplay tile in tileRows[i].tiles)
+            {
+                Vector3Int position = new(tile.Coordinates.x, tile.Coordinates.y, 0);
+                GameOverTile newTile = Instantiate(gameOverTile, position - new Vector3Int(3, 3, 0), Quaternion.identity);
+                newTile.Initialize(tilemap.GetSprite(position), i * 0.1f);
+            }
+        }
+
+        for (int i = 0; i < tileRows.Count; i++)
+        {
+            foreach (TileDisplay tile in tileRows[i].tiles)
+            {
+                tilemap.SetTile(new Vector3Int(tile.Coordinates.x, tile.Coordinates.y, 0), null);
+            }
+        }
+    }
+
+    [Serializable]
+    public class TileDisplayList
+    {
+        public List<TileDisplay> tiles;
     }
 }
