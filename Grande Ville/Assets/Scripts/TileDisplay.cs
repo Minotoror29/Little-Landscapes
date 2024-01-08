@@ -57,7 +57,7 @@ public class TileDisplay : MonoBehaviour, ISelectable
 
         if (currentState == TileState.Empty)
         {
-            _tilemapManager.SetEmptyTile(new Vector3Int(Coordinates.x, Coordinates.y));
+            StartCoroutine(_tilemapManager.SpawnEmptyTile(new Vector3Int(Coordinates.x, Coordinates.y)));
         }
     }
 

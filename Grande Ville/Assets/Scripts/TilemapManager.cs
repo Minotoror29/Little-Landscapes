@@ -10,6 +10,17 @@ public class TilemapManager : MonoBehaviour
     [SerializeField] private Tile emptyTile;
     [SerializeField] private SpawningTile spawningTile;
 
+    public Tilemap TileMap { get { return tilemap; } }
+
+    public IEnumerator SpawnEmptyTile(Vector3Int position)
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        tilemap.SetTile(position, null);
+        SpawningTile newTile = Instantiate(spawningTile, position - new Vector3Int(3, 3, 0), Quaternion.identity);
+        newTile.Initialize(this, emptyTile, emptyTile.sprite, position);
+    }
+
     public void SetEmptyTile(Vector3Int position)
     {
         tilemap.SetTile(position, emptyTile);
@@ -19,7 +30,7 @@ public class TilemapManager : MonoBehaviour
     {
         tilemap.SetTile(position, null);
         SpawningTile newTile = Instantiate(spawningTile, position - new Vector3Int(3, 3, 0), Quaternion.identity);
-        newTile.Initialize(this, tileData, position);
+        newTile.Initialize(this, tileData.ruleTile, tileData.ruleTile.m_DefaultSprite, position);
     }
 
     public void SetOccupiedTile(Vector3Int position, TileBase tile)

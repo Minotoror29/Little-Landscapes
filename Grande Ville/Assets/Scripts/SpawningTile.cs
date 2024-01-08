@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class SpawningTile : MonoBehaviour
 {
     private TilemapManager _tilemapManager;
-    private TileData _tileData;
+    private TileBase _tile;
     private Vector3Int _coordinates;
 
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -14,13 +14,13 @@ public class SpawningTile : MonoBehaviour
     [SerializeField] private float spawningTime;
     private float _timer;
 
-    public void Initialize(TilemapManager tilemapManager, TileData tileData, Vector3Int coordinates)
+    public void Initialize(TilemapManager tilemapManager, TileBase tile, Sprite sprite, Vector3Int coordinates)
     {
         _tilemapManager = tilemapManager;
-        _tileData = tileData;
+        _tile = tile;
         _coordinates = coordinates;
 
-        spriteRenderer.sprite = tileData.ruleTile.m_DefaultSprite;
+        spriteRenderer.sprite = sprite;
 
         _timer = spawningTime;
     }
@@ -32,7 +32,7 @@ public class SpawningTile : MonoBehaviour
             _timer -= Time.deltaTime;
         } else
         {
-            _tilemapManager.SetOccupiedTile(_coordinates, _tileData.ruleTile);
+            _tilemapManager.TileMap.SetTile(_coordinates, _tile);
             Destroy(gameObject);
         }
     }
