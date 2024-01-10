@@ -1,12 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum GameMode { Normal, Daily }
+
 public class GameManager : MonoBehaviour
 {
     private GameState _currentState;
+    [SerializeField] private GameMode gameMode;
 
     [SerializeField] private GridManager gridManager;
     [SerializeField] private TilemapManager tilemapManager;
@@ -45,6 +49,16 @@ public class GameManager : MonoBehaviour
             slot.Initialize(this);
         }
 
+        int currentSeed = 0;
+        if (gameMode == GameMode.Normal)
+        {
+            currentSeed = UnityEngine.Random.Range(-999999999, 999999999);
+        } else if (gameMode == GameMode.Daily)
+        {
+            currentSeed = DateTime.Now.Year + DateTime.Now.Month + DateTime.Now.Day;
+        }
+        UnityEngine.Random.InitState(currentSeed);
+
         FillSlots();
 
         _score = 0;
@@ -65,7 +79,7 @@ public class GameManager : MonoBehaviour
 
     private TileData GetRandomTile()
     {
-        int randomIndex = Random.Range(0, tilesData.Count);
+        int randomIndex = UnityEngine.Random.Range(0, tilesData.Count);
         return tilesData[randomIndex];
     }
 

@@ -9065,6 +9065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8e90e452d5743f49817a081343b3240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameMode: 1
   gridManager: {fileID: 1651803658}
   tilemapManager: {fileID: 258497757}
   selectionManager: {fileID: 543468109}
