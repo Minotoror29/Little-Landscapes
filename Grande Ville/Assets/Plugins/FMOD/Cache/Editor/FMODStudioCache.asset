@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/Audio/petits_paysages/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638405770471570930
+  lastModified: 638405785974836670
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -35,10 +35,10 @@ MonoBehaviour:
   Path: Assets/Audio/petits_paysages/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638405770479575639
+  lastModified: 638405785975031551
   FileSizes:
   - Name: Desktop
-    Value: 704192
+    Value: 704768
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -63,7 +63,7 @@ MonoBehaviour:
   - {fileID: -8459716689497111751}
   StringsBanks:
   - {fileID: 612178792340638685}
-  cacheTime: 638405770479575639
+  cacheTime: 638405785975031551
   cacheVersion: 131609
 --- !u!114 &612178792340638685
 MonoBehaviour:
@@ -80,10 +80,34 @@ MonoBehaviour:
   Path: Assets/Audio/petits_paysages/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638405770471590960
+  lastModified: 638405785974846673
   FileSizes:
   - Name: Desktop
-    Value: 802
+    Value: 856
+  Exists: 1
+--- !u!114 &1589965518701159736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Music/Music Volume
+  m_EditorClassIdentifier: 
+  Name: Music Volume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3398669556
+    data2: 3317136249
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &6456321986739781911
 MonoBehaviour:
@@ -108,7 +132,8 @@ MonoBehaviour:
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
-  Parameters: []
+  Parameters:
+  - {fileID: 1589965518701159736}
   MinDistance: 1
   MaxDistance: 20
   Length: 52363
