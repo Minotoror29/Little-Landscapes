@@ -18,6 +18,10 @@ public class MusicManager : MonoBehaviour
     private MusicState _currentMusicState;
     private float _fadeTimer;
 
+    private bool _muted = false;
+
+    public bool Muted { get { return _muted; } }
+
     private void Awake()
     {
         if (_instance == null)
@@ -56,6 +60,19 @@ public class MusicManager : MonoBehaviour
         {
             _fadeTimer = 0f;
             _currentMusicState = MusicState.FadeIn;
+        }
+    }
+
+    public void MuteMusic()
+    {
+        if (_muted)
+        {
+            _muted = false;
+            _music.setParameterByName("Mute Music", 1);
+        } else
+        {
+            _muted = true;
+            _music.setParameterByName("Mute Music", 0);
         }
     }
 

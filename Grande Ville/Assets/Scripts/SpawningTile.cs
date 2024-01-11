@@ -1,3 +1,5 @@
+using FMOD.Studio;
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +16,8 @@ public class SpawningTile : MonoBehaviour
     [SerializeField] private float spawningTime;
     private float _timer;
 
+    private EventInstance _plopSound;
+
     public void Initialize(TilemapManager tilemapManager, TileBase tile, Sprite sprite, Vector3Int coordinates)
     {
         _tilemapManager = tilemapManager;
@@ -23,6 +27,9 @@ public class SpawningTile : MonoBehaviour
         spriteRenderer.sprite = sprite;
 
         _timer = spawningTime;
+
+        _plopSound = RuntimeManager.CreateInstance("event:/Plop");
+        _plopSound.start();
     }
 
     private void Update()

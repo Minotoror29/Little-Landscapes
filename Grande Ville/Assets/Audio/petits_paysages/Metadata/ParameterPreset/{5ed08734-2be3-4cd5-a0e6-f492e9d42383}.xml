@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{5ed08734-2be3-4cd5-a0e6-f492e9d42383}">
+		<property name="name">
+			<value>Mute Music</value>
+		</property>
+		<relationship name="folder">
+			<destination>{9a32c483-a7ea-49a0-b6d1-724d0cd9ee0b}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{d28f2201-e513-46f3-95ac-41cda0d49b52}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{d28f2201-e513-46f3-95ac-41cda0d49b52}">
+		<property name="initialValue">
+			<value>1</value>
+		</property>
+	</object>
+</objects>
