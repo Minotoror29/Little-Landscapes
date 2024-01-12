@@ -12,16 +12,21 @@ public class GameManager : MonoBehaviour
     private GameState _currentState;
     [SerializeField] private GameMode gameMode;
 
+    [Header("Managers")]
     [SerializeField] private GridManager gridManager;
     [SerializeField] private TilemapManager tilemapManager;
     [SerializeField] private SelectionManager selectionManager;
 
+    [Header("Tiles")]
     [SerializeField] private List<TileData> tilesData;
 
+    [Header("Slots")]
     [SerializeField] private GameObject slotsDisplay;
     [SerializeField] private List<TileSlot> slots;
+    [SerializeField] private Animator slotsAnimator;
     private int _emptySlots;
 
+    [Header("Score")]
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private ScoreDisplay scoreDisplay;
     [SerializeField] private Canvas worldSpaceCanvas;
@@ -29,6 +34,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform scoreTransform;
     private int _score;
 
+    [Header("Game Over")]
     [SerializeField] private Canvas gameOverCanvas;
 
     public GridManager GridManager { get { return gridManager; } }
@@ -63,6 +69,8 @@ public class GameManager : MonoBehaviour
 
         _score = 0;
         scoreText.text = _score.ToString();
+
+        slotsAnimator.CrossFade("Slots_Enter", 0f);
 
         ChangeState(new GameStartState(this));
     }
@@ -126,7 +134,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         gameOverCanvas.gameObject.SetActive(true);
-        slotsDisplay.gameObject.SetActive(false);
+        slotsAnimator.CrossFade("Slots_Exit", 0f);
 
         tilemapManager.GameOverAnimation();
     }

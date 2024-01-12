@@ -48,6 +48,15 @@ public class MusicManager : MonoBehaviour
         _currentMusicState = MusicState.Playing;
 
         SceneManager.activeSceneChanged += CheckScene;
+
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            _music.setParameterByName("Music Volume", 0f);
+        }
+        else if (SceneManager.GetActiveScene().buildIndex > 0)
+        {
+            _music.setParameterByName("Music Volume", 1f);
+        }
     }
 
     private void CheckScene(Scene currentScene, Scene nextScene)
