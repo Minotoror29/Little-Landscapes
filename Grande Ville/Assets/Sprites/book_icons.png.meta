@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 039404dc6fe3e074991bd12fb4d77642
+guid: 90ca39bd7e67bac47bbe918581e4a6cc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,34 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: buttons_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 48
-        width: 80
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 57b0eb639e15d7842995b487008e764a
-      internalID: 1788725794
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buttons_1
+      name: book_icons_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 80
-        height: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,62 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4575c524a6857949ae5f046933c1f2a
-      internalID: -1686518460
+      spriteID: 2da74fb43e1cb2a4ca7faa88cb130447
+      internalID: -1356180231
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buttons_2
+      name: book_icons_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 48
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa550c2dcd88ae8488393d3c3d11ba29
-      internalID: -46450388
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buttons_3
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 48
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cf19193c0afe0bb45886e6b646edbfc3
-      internalID: 1227845441
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buttons_4
-      rect:
-        serializedVersion: 2
-        x: 80
+        x: 16
         y: 0
-        width: 48
-        height: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6202027905c5254ca76352336ac565e
-      internalID: -1614523051
+      spriteID: a37960325209cf943af4be906ab4a9bc
+      internalID: 859371406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buttons_5
+      name: book_icons_2
       rect:
         serializedVersion: 2
-        x: 128
+        x: 32
         y: 0
-        width: 48
-        height: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,62 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ade2678210a3fee44a142f0211e0b33b
-      internalID: -1127326938
+      spriteID: 2920302fb5e552a418a385c5a76f794b
+      internalID: -280951498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buttons_6
+      name: book_icons_3
       rect:
         serializedVersion: 2
-        x: 176
-        y: 48
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cae56bff8eff11c4fa4313bf4d2af53a
-      internalID: -1994019909
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buttons_7
-      rect:
-        serializedVersion: 2
-        x: 176
+        x: 48
         y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ec02d4478f216ef429ba5ef002b4a4dc
-      internalID: 1388306292
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: buttons_8
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 48
-        width: 48
-        height: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50eb27bba629f1745b541729af8285ce
-      internalID: 1564425000
+      spriteID: 8b547bc38a18d6c438b8cd2662390024
+      internalID: 574137009
       vertices: []
       indices: 
       edges: []
@@ -316,15 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      buttons_0: 1788725794
-      buttons_1: -1686518460
-      buttons_2: -46450388
-      buttons_3: 1227845441
-      buttons_4: -1614523051
-      buttons_5: -1127326938
-      buttons_6: -1994019909
-      buttons_7: 1388306292
-      buttons_8: 1564425000
+      book_icons_0: -1356180231
+      book_icons_1: 859371406
+      book_icons_2: -280951498
+      book_icons_3: 574137009
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
