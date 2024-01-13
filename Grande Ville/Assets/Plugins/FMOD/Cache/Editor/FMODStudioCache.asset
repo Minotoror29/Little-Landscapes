@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/Audio/petits_paysages/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638405894625454452
+  lastModified: 638407500572577206
   FileSizes:
   - Name: Desktop
-    Value: 1194
+    Value: 1340
   Exists: 1
 --- !u!114 &-2617876568671207815
 MonoBehaviour:
@@ -35,7 +35,7 @@ MonoBehaviour:
   Path: Assets/Audio/petits_paysages/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638405894625854954
+  lastModified: 638407500572966443
   FileSizes:
   - Name: Desktop
     Value: 4128
@@ -55,10 +55,10 @@ MonoBehaviour:
   Path: Assets/Audio/petits_paysages/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638405894625674505
+  lastModified: 638407500572793496
   FileSizes:
   - Name: Desktop
-    Value: 989504
+    Value: 1058080
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -80,12 +80,13 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: 6456321986739781911}
   - {fileID: 4292499869320940435}
+  - {fileID: 8170073816763366140}
   EditorParameters: []
   MasterBanks:
   - {fileID: -8459716689497111751}
   StringsBanks:
   - {fileID: 612178792340638685}
-  cacheTime: 638405894625854954
+  cacheTime: 638407500572966443
   cacheVersion: 131609
 --- !u!114 &612178792340638685
 MonoBehaviour:
@@ -102,10 +103,10 @@ MonoBehaviour:
   Path: Assets/Audio/petits_paysages/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638405894625469460
+  lastModified: 638407500572592324
   FileSizes:
   - Name: Desktop
-    Value: 1038
+    Value: 1124
   Exists: 1
 --- !u!114 &1589965518701159736
 MonoBehaviour:
@@ -211,3 +212,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 52363
+--- !u!114 &8170073816763366140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Game Over Music
+  m_EditorClassIdentifier: 
+  Path: event:/Game Over Music
+  Guid:
+    Data1: 156498945
+    Data2: 1314931731
+    Data3: 48528304
+    Data4: 616022677
+  Banks:
+  - {fileID: -777682715197111574}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6545

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum MusicState { Playing, FadeIn, FadeOut }
+public enum MusicState { Playing, FadeIn, FadeOut, GameOver }
 
 public class MusicManager : MonoBehaviour
 {
@@ -13,6 +13,8 @@ public class MusicManager : MonoBehaviour
     public static MusicManager Instance => _instance;
 
     private EventInstance _music;
+    private EventInstance _gameOverMusic;
+    private Bus _musicBus;
 
     [SerializeField] private float fadeSpeed = 0.25f;
     private MusicState _currentMusicState;
@@ -44,6 +46,9 @@ public class MusicManager : MonoBehaviour
     public void Initialize()
     {
         _music = RuntimeManager.CreateInstance("event:/Music");
+        _gameOverMusic = RuntimeManager.CreateInstance("event:/Game Over Music");
+        _musicBus = RuntimeManager.GetBus("bus:/Music Bus");
+
         _music.start();
         _currentMusicState = MusicState.Playing;
 
@@ -52,10 +57,12 @@ public class MusicManager : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             _music.setParameterByName("Music Volume", 0f);
+            _fadeTimer = 0f;
         }
         else if (SceneManager.GetActiveScene().buildIndex > 0)
         {
             _music.setParameterByName("Music Volume", 1f);
+            _fadeTimer = 1f;
         }
     }
 
@@ -63,25 +70,45 @@ public class MusicManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            _fadeTimer = 1f;
-            _currentMusicState = MusicState.FadeOut;
+            if (_currentMusicState == MusicState.GameOver)
+            {
+                _gameOverMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                _music.setParameterByName("Music Volume", 0f);
+                _music.start();
+            } else
+            {
+                _currentMusicState = MusicState.FadeOut;
+            }
         } else if (SceneManager.GetActiveScene().buildIndex > 0)
         {
-            _fadeTimer = 0f;
+            if (_currentMusicState == MusicState.GameOver)
+            {
+                _gameOverMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                _music.start();
+                _fadeTimer = 0f;
+            }
+
             _currentMusicState = MusicState.FadeIn;
         }
     }
 
+    public void GameOverMusic()
+    {
+        _currentMusicState = MusicState.GameOver;
+        _music.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        _gameOverMusic.start();
+    }
+
     public void MuteMusic()
     {
+        _muted = !_muted;
+
         if (_muted)
         {
-            _muted = false;
-            _music.setParameterByName("Mute Music", 1);
+            _musicBus.setVolume(Mathf.Pow(10.0f, -75f / 20f));
         } else
         {
-            _muted = true;
-            _music.setParameterByName("Mute Music", 0);
+            _musicBus.setVolume(Mathf.Pow(10.0f, 0f / 20f));
         }
     }
 

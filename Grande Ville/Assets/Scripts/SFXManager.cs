@@ -11,7 +11,7 @@ public class SFXManager : MonoBehaviour
 
     private bool _muted = false;
 
-    private Bus _bus;
+    private Bus _sfxBus;
 
     public bool Muted { get { return _muted; } }
 
@@ -31,7 +31,7 @@ public class SFXManager : MonoBehaviour
 
     private void Start()
     {
-        _bus = RuntimeManager.GetBus("bus:/SFX Bus");
+        _sfxBus = RuntimeManager.GetBus("bus:/SFX Bus");
     }
 
     public void MuteSFX()
@@ -40,10 +40,10 @@ public class SFXManager : MonoBehaviour
 
         if (_muted)
         {
-            _bus.setVolume(Mathf.Pow(10.0f, -75f / 20f));
+            _sfxBus.setVolume(Mathf.Pow(10.0f, -75f / 20f));
         } else
         {
-            _bus.setVolume(Mathf.Pow(10.0f, 0f / 20f));
+            _sfxBus.setVolume(Mathf.Pow(10.0f, 0f / 20f));
         }
     }
 }

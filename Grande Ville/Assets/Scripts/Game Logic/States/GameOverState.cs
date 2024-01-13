@@ -11,6 +11,7 @@ public class GameOverState : GameState
     public override void Enter()
     {
         GameManager.GameOver();
+        MusicManager.Instance.GameOverMusic();
     }
 
     public override void Exit()
