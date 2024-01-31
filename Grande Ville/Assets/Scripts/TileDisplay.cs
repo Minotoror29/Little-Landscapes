@@ -86,7 +86,7 @@ public class TileDisplay : MonoBehaviour, ISelectable
         }
     }
 
-    public void OnSelect(SelectedTileDisplay selectedTile)
+    public bool OnSelect(SelectedTileDisplay selectedTile)
     {
         if (selectedTile.SelectedTile)
         {
@@ -116,7 +116,15 @@ public class TileDisplay : MonoBehaviour, ISelectable
 
                 _gridManager.PlayTile();
                 _gameManager.ChangeState(new GameScoreState(_gameManager, score));
+
+                return true;
+            } else
+            {
+                return false;
             }
+        } else
+        {
+            return false;
         }
     }
 }

@@ -24,9 +24,9 @@ public class TileSlot : MonoBehaviour, ISelectable
         image.gameObject.SetActive(true);
     }
 
-    public void OnSelect(SelectedTileDisplay selectedTile)
+    public bool OnSelect(SelectedTileDisplay selectedTile)
     {
-        if (_tile == null) return;
+        if (_tile == null) return false;
 
         if (selectedTile.SelectedTile == null)
         {
@@ -44,6 +44,8 @@ public class TileSlot : MonoBehaviour, ISelectable
                 image.gameObject.SetActive(false);
             }
         }
+
+        return true;
     }
 
     public void PutBackTile()

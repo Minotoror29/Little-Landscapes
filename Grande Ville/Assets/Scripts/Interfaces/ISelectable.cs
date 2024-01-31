@@ -5,5 +5,5 @@ using UnityEngine;
 
 public interface ISelectable 
 {
-    void OnSelect(SelectedTileDisplay selectedTile);
+    bool OnSelect(SelectedTileDisplay selectedTile);
 }

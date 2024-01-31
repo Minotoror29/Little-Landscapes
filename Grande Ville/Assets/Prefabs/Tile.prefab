@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5710774589853189735}
   - component: {fileID: 8884412480530279708}
   - component: {fileID: -3841917302631731395}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,9 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  spriteRenderer: {fileID: 0}
-  inactiveSprite: {fileID: 956762356, guid: fd0070d4f20b0a0428814140b06d9507, type: 3}
-  emptySprite: {fileID: 1701750557, guid: fd0070d4f20b0a0428814140b06d9507, type: 3}
   tile: {fileID: 0}
 --- !u!61 &-3841917302631731395
 BoxCollider2D:
