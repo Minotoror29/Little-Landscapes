@@ -12,6 +12,13 @@ public class SelectedTileDisplay : MonoBehaviour
     public TileData SelectedTile { get { return _selectedTile; } }
     public TileSlot Slot { get { return _slot; } }
 
+    public void Initialize()
+    {
+#if UNITY_ANDROID
+        spriteRenderer.transform.localPosition = new Vector3(-1, 1, 0);
+#endif
+    }
+
     public void SetTile(TileData tile, TileSlot slot)
     {
         _selectedTile = tile;

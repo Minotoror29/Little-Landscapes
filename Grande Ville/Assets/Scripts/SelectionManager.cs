@@ -9,6 +9,11 @@ public class SelectionManager : MonoBehaviour
     [SerializeField] private LayerMask droppableLayer;
     [SerializeField] private SelectedTileDisplay selectedTileDisplay;
 
+    private void Start()
+    {
+        selectedTileDisplay.Initialize();
+    }
+
     public void UpdateLogic()
     {
         selectedTileDisplay.UpdateLogic();
